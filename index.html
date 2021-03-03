@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Frontend Mentor | Pomodoro app</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <h2 class="title">pomodoro</h2>
+    <nav id="nav1" class="btn-group">
+      <ul id=navbuttons class=navbuttons>
+        <li id="buttonpomo" class="active">pomodoro</li>
+        <li id="buttonshort" class="">short break</li>
+        <li id="buttonlong" class="">long break</li>
+      </ul>
+      <div id="bgindicator"></div>
+    </nav>
+    <section id="timer" class="center">
+      <div id="outercircle">
+        <div id="innercircle">
+          <svg id="ring">
+            <circle id="circle">
+            </circle>
+          </svg>
+        </div>
+      </div>
+      <div id="time"></div>
+      <button id="action" class="actionbutton" type="button" onClick="action(this.innerText)">START
+      </button>
+    </section>
+    <section id="settings" class="center">
+    </section>
+  </div>
+
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
