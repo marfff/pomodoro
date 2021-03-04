@@ -215,7 +215,7 @@ circle {
 
 
 
-#settings {
+#settingicon {
 margin:auto;
 position: absolute;
 text-align: center;
@@ -225,5 +225,13 @@ top: 95.98%;
 bottom:56px;
 height:28px;
 width:27px;
-background: #D7E0FF;
+fill:var(--light-blue);
 }
+
+/* var myWindow = window.open("", "", "width=200, height=100");   // Opens a new window
+myWindow.document.write("<p>A new window!</p>");         // Some text in the new window
+myWindow.focus();                                     // Assures that the new window gets focus
+
+function openw() {
+  myWindow;
+} */
