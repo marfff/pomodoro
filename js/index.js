@@ -10,11 +10,11 @@ class Timer {
         this.buttonlong = document.getElementById("buttonlong");
         this.buttonpomo = document.getElementById("buttonpomo")
         this.time = document.getElementById("time")
+        // this.audio1=document.getElementById("sound1")
         this.time.innerHTML = this.timeLeft + ":00";
         this.selectors = document.querySelectorAll("li");
         this.timer = 25;
         this.paused = false;
-        // this.text = this.timer <= 9 ? "0" + this.timer : this.timer;
         this.interval = 1000;
         this.timetoContinue = 19;
         this.timesetter = 25;
@@ -22,7 +22,6 @@ class Timer {
 
     }
     reset() {
-
     }
 
     settings() {
@@ -54,12 +53,17 @@ class Timer {
         // console.log(this.settime)
     }
 
+    resume() {
+        console.log("RESUME", this.timeLeft)
+        this.paused = false;
+        this.start(this.timeLeft / 60)
+    }
 
     start(timeLeft) {
         clearInterval(this.myInterval); // reset
-        console.log("TIMELEFT", timeLeft)
+        console.log("TIMELEFTatstart", timeLeft)
         this.action.innerHTML = "PAUSE"
-        this.timeLeft = timeLeft * 60 - 1;
+        this.timeLeft = timeLeft * 60 ;
         this.startingtime = this.timeLeft;
         let scope = this;
         this.myInterval = setInterval(function () {
@@ -67,9 +71,11 @@ class Timer {
             let minutes = Math.floor(scope.timeLeft / 60);
             if (seconds < 10) { seconds = "0" + seconds }
             if (minutes < 10) { minutes = "0" + minutes }
-            if (timeLeft == 0) {
+            if (scope.timeLeft == 0) {
+                console.log("HERE",scope.timeLeft)
                 clearInterval(scope.myInterval);
-                clock.innerText = "00:00"
+                scope.clock.innerText = "00:00";
+                console.log("AUDIOSTOP");
                 return
             }
             console.log(scope.paused);
@@ -85,8 +91,8 @@ class Timer {
                 console.log("IS PAUSED")
                 scope.clock.innerText = `${minutes}:${seconds}`;
                 scope.circle1.style.strokeDashoffset = scope.timeLeft / (scope.startingtime / 1024);
-                let timo = scope.timeLeft;
-                scope.action.innerHTML = "START";
+                // let timo = scope.timeLeft;
+                scope.action.innerHTML = "RESUME";
 
                 clearInterval(scope.myInterval);
                 // action(scope.action.innerHTML, timo);
@@ -96,22 +102,27 @@ class Timer {
             console.log("outside-pause")
             scope.timeLeft = scope.timeLeft - 1
             // console.log("IN START TIME LEFT", scope.timeLeft)
-        }, 1000);
+        }, 1);
 
     }
 
     pause() {
+        console.log(this.timeLeft)
+        let scope1=this
         this.paused = true;
-        let timetoContinue = this.timeleft;
-        // console.log(this.timeleft)
 
     }
-}
+
+    
+    }
+    
+    
+
 
 const countdownTimer = new Timer();
 // countdownTimer.reset();
-
 function action(str) {
+    let apple=this.timeLeft
     // alert("fired")
     switch (str.toLowerCase()) {
         case "start":
@@ -121,6 +132,10 @@ function action(str) {
         case "pause":
             countdownTimer.pause()
             break;
+        case "resume":
+            // console.log("THISTIMELEFT",this.timeLeft)
+            countdownTimer.resume()
+                break;
         default:
             countdownTimer.stop();
             break;
@@ -133,19 +148,13 @@ function action(str) {
 
 //NAV LINKS//
 
-// countdownTimer.settings()
-// console.log("helloooooooooo")
 const navbuttons = document.querySelectorAll("li");
 let navBg = document.getElementById("bgindicator");
-// console.log(navbuttons, navBg)
 navbuttons.forEach((item, index) => {
     navbuttons.item(index).addEventListener("click", (ev) => {
         let movement = index * 118 + 25
         navBg.style.marginLeft = `${movement}px`;
         navbuttons.forEach(link => link.classList.remove("active"))
-        // for (const link of navbuttons) {
-        //     link.classList.remove("active")
-        // }
         ev.target.classList.add("active")
         countdownTimer.settings()
 
@@ -153,6 +162,8 @@ navbuttons.forEach((item, index) => {
 }
 );
 
+// let audio1 = document.getElementById("sound1")
+// audio1.play();
 
 // selector() {
 //     this.breakselect.forEach(item => {
