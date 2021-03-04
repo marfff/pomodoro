@@ -18,8 +18,7 @@ class Timer {
     this.timesetter = 25;
     this.myInterval = null;
     this.audio1 = document.getElementById("sound1");
-    // this.mainSettings = document.getElementById("settings1);
-    // console.log(this.mainSettings);
+    this.modal = document.querySelector(".modal");
   }
   reset() {}
 
@@ -107,6 +106,11 @@ class Timer {
     let scope1 = this;
     this.paused = true;
   }
+  overSettings() {
+    // alert("TOGGLEhere");
+    console.log("TOGGLING");
+    this.modal.classList.toggle("modal");
+  }
 }
 
 const countdownTimer = new Timer();
@@ -143,4 +147,19 @@ navbuttons.forEach((item, index) => {
     ev.target.classList.add("active");
     countdownTimer.settings();
   });
+});
+
+//MAIN SETTINGS//
+
+//   settingsMaster() {
+const mainSettings = document.getElementById("settings1");
+console.log(mainSettings);
+console.log("here");
+console.log("DOG", mainSettings, this.mainSettings);
+mainSettings.addEventListener("click", (ev) => {
+  //   alert("SETTINGS FIRED");
+  countdownTimer.overSettings();
+  //   window.open(".settings.html", windowName, [windowFeatures]);
+  //   let options = "titlebar=no,statusbar=no,height=300,width=600";
+  //   let ref = window.open("settings.html", "Fred", options);
 });

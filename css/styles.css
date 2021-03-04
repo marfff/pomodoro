@@ -227,11 +227,131 @@ height:28px;
 width:27px;
 fill:var(--light-blue);
 }
+.modal {
+  position: absolute;
+  top:123px;
+width: 540px;
+height:464px;
+margin:auto;
+&--hidden { 
+display: none;
+}
+}
 
-/* var myWindow = window.open("", "", "width=200, height=100");   // Opens a new window
-myWindow.document.write("<p>A new window!</p>");         // Some text in the new window
-myWindow.focus();                                     // Assures that the new window gets focus
+/* .modal {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width:100%;
+  display:flex;
+  justify-content:
+  center;
+  top:123px;
 
-function openw() {
-  myWindow;
 } */
+
+
+.modalclosebar{
+  margin-left:380px;
+  cursor:pointer;
+}
+.modalcontent{
+display:flex;
+flex-direction: column;
+height:464px;
+width:462px;
+position: relative;
+padding: 34px 38px 59px 40px;
+background: #FFFFFF;
+border-radius: 25px;
+color:var(--darkerblue);
+font-weight:700;
+cursor:pointer;
+
+}
+
+#modheading {
+font-size:28px;
+line-height:28px;
+}
+
+#modtimemins {
+  font-size:13px;
+  line-height:13.08px;
+  letter-spacing: 5px;
+  margin-top:56px;
+  }
+
+  #modselectorwording{
+    display:flex;
+    justify-content: space-between;
+    height:12px;
+    width:386px;
+    margin-top:22px;
+    font-size: 12px;
+    color:var(--light-blue);
+
+  }
+
+  #modpomwords {
+    width:33%;
+    
+
+   }
+
+  #modshortwords {
+   width:33%;
+  }
+
+  #modlongwords {
+    width:33%;
+  }
+
+  #modselectors {
+    display:flex;
+    justify-content: space-between;
+    margin-top:8px;
+    background:var(--beige);
+  }
+
+  #modselectorpom {
+    display:flex;
+    height:48px;
+    width:30%;
+    align-items: center;
+  }
+
+  #modselectorshort {
+    display:flex;
+    align-items: center;
+    width:30%;
+    height:48px;
+  }
+
+
+  #modselectorlong {
+    display:flex;
+    align-items: center;
+    width:33%;
+    height:48px;
+
+  }
+
+  #modfontline {
+height:40px;
+margin-top:49px;
+}
+
+  #modfontline {
+    display:flex;
+    justify-content: space-between;
+    height:40px;
+    margin-top:59px;
+  }
+  #modcolline {
+    display:flex;
+    justify-content: space-between;
+    height:40px;
+    margin-top:29px;
+
+  }
