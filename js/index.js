@@ -19,6 +19,7 @@ class Timer {
         this.timetoContinue = 19;
         this.timesetter = 25;
         this.myInterval = null;
+        this.audio1 = document.getElementById("sound1")
 
     }
     reset() {
@@ -75,7 +76,7 @@ class Timer {
                 console.log("HERE",scope.timeLeft)
                 clearInterval(scope.myInterval);
                 scope.clock.innerText = "00:00";
-                console.log("AUDIOSTOP");
+                scope.audio1.play();
                 return
             }
             console.log(scope.paused);
@@ -161,63 +162,3 @@ navbuttons.forEach((item, index) => {
     })
 }
 );
-
-// let audio1 = document.getElementById("sound1")
-// audio1.play();
-
-// selector() {
-//     this.breakselect.forEach(item => {
-//         item.addEventListener('click', event => {
-//             console.log(event.target)
-//         }
-//         )
-//     })
-
-
-// class Timer {
-//     constructor() {
-//         this.clock = document.getElementById("time");
-//         this.actionElement = document.getElementById("action");
-//         this.timer = 25;
-//         this.text = this.timer <= 9 ? "0" + this.timer : this.timer;
-
-
-//     }
-
-//     reset() {
-//         this.stop()
-//         this.timer = 25;
-//         this.actionElement.innerText = "START";
-//         this.clock.innerText = this.text = ":00";
-//     }
-//     start() {
-//         function format(time) {
-//             return timeFormat < 10 ? 0 + timeFormat : timeFormat;
-//         }
-//         this.actionElement.innerText = "START";
-
-//         let time = this.timer * 60;
-//         let minutes = 0;
-//         let seconds = 0;
-
-//         this.interval = setInterval(() => {
-//             minutes = Math.floor(time / 60);
-//             seconds = Math.floor(time % 60);
-
-//             let minutesText = format(minutes)
-//             let secondsText = format(seconds)
-//             this.clock.innerText = minutesText + ":" + secondsText;
-
-//             if (--time <= 0) {
-//                 this.timer = 0;
-//                 clearInterval(this.interval);
-//             }
-
-//         }, 1000);
-//         thisactionElement.innerText = "PAUSE";
-//     }
-//     stop() {
-//         clearInterval(this.interval);
-//         this.actionElement.innerText = "START";
-//     }
-// }
