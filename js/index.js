@@ -9,7 +9,6 @@ class Timer {
     this.buttonlong = document.getElementById("buttonlong");
     this.buttonpomo = document.getElementById("buttonpomo");
     this.time = document.getElementById("time");
-    // this.audio1=document.getElementById("sound1")
     this.time.innerHTML = this.timeLeft + ":00";
     this.selectors = document.querySelectorAll("li");
     this.timer = 25;
@@ -37,13 +36,9 @@ class Timer {
 
   settings() {
     this.selectors.forEach((item) => {
-      // console.log(item.innerHTML)
-      // console.log(item.classList)
-      console.log("pressed");
       if (item.classList == "active") {
         let selectedwords = item.innerHTML;
         let settime = 25;
-        // console.log(selectedwords)
 
         switch (selectedwords) {
           case "pomodoro":
@@ -58,20 +53,16 @@ class Timer {
         }
         countdownTimer.start(settime);
       }
-      // console.log(settime)
     });
-    // console.log(this.settime)
   }
 
   resume() {
-    console.log("RESUME", this.timeLeft);
     this.paused = false;
     this.start(this.timeLeft / 60);
   }
 
   start(timeLeft) {
     clearInterval(this.myInterval); // reset
-    console.log("TIMELEFTatstart", timeLeft);
     this.action.innerHTML = "PAUSE";
     this.timeLeft = timeLeft * 60;
     this.startingtime = this.timeLeft;
@@ -86,16 +77,12 @@ class Timer {
         minutes = "0" + minutes;
       }
       if (scope.timeLeft == 0) {
-        console.log("HERE", scope.timeLeft);
         clearInterval(scope.myInterval);
         scope.clock.innerText = "00:00";
         scope.audio1.play();
         return;
       }
-      console.log(scope.paused);
       if (!scope.paused) {
-        console.log("NOT PAUSED");
-        // else { return };
         scope.clock.innerText = `${minutes}:${seconds}`;
         scope.circle1.style.strokeDashoffset =
           scope.timeLeft / (scope.startingtime / 1024);
@@ -103,26 +90,20 @@ class Timer {
       }
 
       while (scope.paused) {
-        console.log("IS PAUSED");
         scope.clock.innerText = `${minutes}:${seconds}`;
         scope.circle1.style.strokeDashoffset =
           scope.timeLeft / (scope.startingtime / 1024);
-        // let timo = scope.timeLeft;
         scope.action.innerHTML = "RESUME";
 
         clearInterval(scope.myInterval);
-        // action(scope.action.innerHTML, timo);
         return;
       }
 
-      console.log("outside-pause");
       scope.timeLeft = scope.timeLeft - 1;
-      // console.log("IN START TIME LEFT", scope.timeLeft)
     }, 1000);
   }
 
   pause() {
-    console.log(this.timeLeft);
     let scope1 = this;
     this.paused = true;
   }
@@ -142,7 +123,6 @@ function action(str) {
       countdownTimer.pause();
       break;
     case "resume":
-      // console.log("THISTIMELEFT",this.timeLeft)
       countdownTimer.resume();
       break;
     default:
@@ -150,10 +130,6 @@ function action(str) {
       break;
   }
 }
-
-// countdownTimer.settingsMaster();
-// this.selector()
-// countdownTimer.start()
 
 //NAV LINKS//
 
