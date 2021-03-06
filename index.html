@@ -7,6 +7,10 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Roboto+Slab&family=Space+Mono&display=swap"
+    rel="stylesheet">
+
 
   <audio src="./assets/Fire_pager-jason-1283464858.mp3" id="sound1" preload></audio>
 
@@ -44,12 +48,15 @@
       </div>
     </section>
   </div>
+
   <div class="modal modal--hidden">
     <div class="modalcontent">
       <div class="modalclosebar">
-        <span>X</span>
+        <span id="closer">X</span>
       </div>
       <div id="modheading">Settings</div>
+      <hr>
+      </hr>
       <div id="modtimemins">TIME (MINUTES)</div>
       <div id=modselectorwording>
         <div id="modpomwords">pomodoro</div>
@@ -57,39 +64,73 @@
         <div id="modlongwords">long break</div>
       </div>
 
-      <div id="modselectors">
-        <div id="modselectorpom">
 
-          <div id="modpomtime">25</div>
-          <div id="modpomselect"></div>
+      <form class="form" id=#form>
+        <div id="modselectors" class="modselectors">
+
+          <span id="modselectorpom" class="modselectorpom">
+            <input type="number" class="minspom" id="minspom" name="minspom" min="1" max="120" value="25" color="blue">
+            <span class="updown">
+              <img src="./assets/icon-arrow-up.svg" id="minspomup" class="arrows" />
+              <img src="./assets/icon-arrow-down.svg" id="minspomdown" class="arrows" />
+            </span>
+          </span>
+
+          <span id="modselectorshort" class="modselectorshort">
+            <input type="number" class="minsshort" id="minsshort" name="minsshort" min="1" max="120" value="5"
+              color="blue">
+            <span class="updown">
+              <img src="./assets/icon-arrow-up.svg" id="minsshortup" class="arrows" />
+              <img src="./assets/icon-arrow-down.svg" id="minsshortdown" class="arrows" />
+            </span>
+          </span>
+
+          <span id="modselectorlong" class="modselectorlong">
+            <input type="number" class="minslong" id="minslong" name="minslong" min="1" max="120" value="10"
+              color="blue">
+            <span class="updown">
+              <img src="./assets/icon-arrow-up.svg" id="minslongup" class="arrows" />
+              <img src="./assets/icon-arrow-down.svg" id="minslongdown" class="arrows" />
+            </span>
+          </span>
+        </div>
+        <hr>
+        </hr>
+
+        <div class="modfontline">
+          <div id="modfontwords">FONT</div>
+          <div class="fontblock" id="fontblock">
+            <div id="fontblock1" class="circular">Aa</div>
+            <div id="fontblock2" class="circular">Aa</div>
+            <div id="fontblock3" class="circular">Aa</div>
+          </div>
         </div>
 
-        <div id="modselectorshort">
-
-          <div id="modshorttime">5</div>
-
-          <div id="modshortselect"></div>
+        <div class="modfontline">
+          <div id="modfontwords">COLOR</div>
+          <div class="fontblock" id="fontblock">
+            <div id="colblock1" class="circular">√
+            </div>
+            <div id="colblock2" class="circular"></div>
+            <div id="colblock3" class="circular"></div>
+          </div>
         </div>
-        <div id="modselectorlong">
 
-          <div id="modlongtime">15</div>
-          <div id="modlongselect"></div>
-        </div>
-      </div>
-      <div id="modfontline">
-        <div id="modfontwords">FONT</div>
-        <div id="modfontselector">O.... O.... O</div>
-      </div>
-      <div id="modcolline">
-        <div id="modcolwords">COLOR</div>
-        <div id="modcolselector">O.... O.... O</div>
-      </div>
+
+
+
+
+
+
+
+
     </div>
   </div>
-
-
-
-
+  <hr>
+  </hr>
+  </form>
+  </div>
+  </div>
 
 
   <script src="js/index.js"></script>

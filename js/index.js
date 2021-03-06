@@ -22,17 +22,6 @@ class Timer {
   }
   reset() {}
 
-  //   settingsMaster() {
-  //     this.mainsettings.addEventListener("click", (ev) => {
-  //       alert("window opened");
-  //             // window.open(url, windowName, [windowFeatures]);
-  //             // let options = 'titlebar=no,statusbar=no,height=300,width=600';
-  //             // let ref = wondow.open('new.html', 'Fred', options);
-  // });
-  //  }
-  // });
-  //   }
-
   settings() {
     this.selectors.forEach((item) => {
       if (item.classList == "active") {
@@ -103,9 +92,9 @@ class Timer {
   }
 
   pause() {
-    let scope1 = this;
     this.paused = true;
   }
+
   overSettings() {
     // alert("TOGGLEhere");
     console.log("TOGGLING");
@@ -114,13 +103,10 @@ class Timer {
 }
 
 const countdownTimer = new Timer();
-// countdownTimer.reset();
+
 function action(str) {
-  let apple = this.timeLeft;
-  // alert("fired")
   switch (str.toLowerCase()) {
     case "start":
-      // alert("great")
       countdownTimer.start(25);
       break;
     case "pause":
@@ -151,15 +137,14 @@ navbuttons.forEach((item, index) => {
 
 //MAIN SETTINGS//
 
-//   settingsMaster() {
-const mainSettings = document.getElementById("settings1");
-console.log(mainSettings);
-console.log("here");
-console.log("DOG", mainSettings, this.mainSettings);
-mainSettings.addEventListener("click", (ev) => {
-  //   alert("SETTINGS FIRED");
-  countdownTimer.overSettings();
-  //   window.open(".settings.html", windowName, [windowFeatures]);
-  //   let options = "titlebar=no,statusbar=no,height=300,width=600";
-  //   let ref = window.open("settings.html", "Fred", options);
-});
+const mainSettings = document
+  .getElementById("settings1")
+  .addEventListener("click", (ev) => {
+    countdownTimer.overSettings();
+  });
+
+const mainSettings2 = document
+  .getElementById("closer")
+  .addEventListener("click", (ev) => {
+    countdownTimer.overSettings();
+  });
