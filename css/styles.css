@@ -179,14 +179,16 @@ circle {
   height: 101px;
   width:233px;
   top: -230px;
+  margin-left:77px;
   font-family: Kumbh Sans;
   font-style: normal;
   font-weight: bold;
+  transition:margin-left 1500ms ease-out;
   font-size: 100px;
   line-height: 101px;
   /* identical to box height */
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: -1px;
   color: #D7E0FF;
 }
 
