@@ -19,6 +19,9 @@ class Timer {
     this.myInterval = null;
     this.audio1 = document.getElementById("sound1");
     this.modal = document.querySelector(".modal");
+    this.timepom = 25;
+    this.timeshort = 5;
+    this.timelong = 10;
   }
   reset() {}
 
@@ -26,17 +29,19 @@ class Timer {
     this.selectors.forEach((item) => {
       if (item.classList == "active") {
         let selectedwords = item.innerHTML;
-        let settime = 25;
+        let settime;
+        console.log(this.timepom);
 
         switch (selectedwords) {
           case "pomodoro":
-            settime = 25;
+            // console.log(timepom);
+            settime = timepom;
             break;
           case "short break":
-            settime = 5;
+            settime = timeshort;
             break;
           case "long break":
-            settime = 10;
+            settime = timelong;
             break;
         }
         countdownTimer.start(settime);
@@ -150,18 +155,36 @@ const mainSettings2 = document
   });
 //SETTINGS TIME SPINNER
 
-// const input1 = document.getElementById("minspom");
-// const input2 = document.getElementById("minsshort");
-// const input3 = document.getElementById("minslong");
-
 document.querySelectorAll(".uparrow, .downarrow").forEach((arrow) => {
   arrow.addEventListener("click", (ev) => ev.preventDefault());
+  let timepom = minspom.value;
+  console.log(timepom);
 });
 // let inc = () => document.getElementById("minspom").stepUp(1);
 let inc = (input) => document.getElementById(input).stepUp(1);
 let dec = (input) => document.getElementById(input).stepDown(1);
-// document.getElementById("minspom").stepUp(2);
 
+let input1 = document.getElementById("minspom");
+let input2 = document.getElementById("minsshort");
+let input3 = document.getElementById("minslong");
+
+console.log(minspom.value, minsshort.value, minslong.value);
+
+const submit = (event) => {
+  event.preventDefault();
+
+  //   console.log(minspom.value, minsshort.value, minslong.value);
+  this.timepom = minspom.value;
+  this.timeshort = minsshort.value;
+  this.timelong = minslong.value;
+
+  //   console.log(timepom);
+};
+form.addEventListener("submit", submit);
+
+// console.log(form);
+
+// document.getElementById("minspom").stepUp(2);
 // const inc = (pomodoro) => {
 //   let inputValue1 = input1.value;
 //   console.log(inputValue1);

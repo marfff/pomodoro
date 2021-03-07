@@ -253,7 +253,7 @@ display: none;
 .modalcontent{
 display:flex;
 flex-direction: column;
-height:464px;
+height:540px;
 width:540px;
 position: relative;
 padding: 34px 38px 59px 40px;
@@ -377,10 +377,9 @@ button {
 }
 
 .arrows:hover {
-  stroke:black;
-  fill:white;
- stroke-dasharray:20px;
-  
+  /* stroke:black;
+  fill:white; */
+  opacity:.6;
 }
 
 .modselectorpom {
@@ -389,7 +388,7 @@ button {
   width: 118px;
   height:48px;
   background:var(--orange);
-  border-radius:10px;
+  border-radius:8px;
   border:none;
   outline:none;
 }
@@ -400,7 +399,7 @@ button {
   width: 118px;
   height:48px;
   background:var(--green);
-  border-radius:10px;
+  border-radius:8px;
   border:none;
   outline:none;
 }
@@ -411,7 +410,7 @@ button {
   width: 118px;
   height:48px;
   background:var(--purple);
-  border-radius:10px;
+  border-radius:8px;
   border:none;
   outline:none;
 }
@@ -506,4 +505,22 @@ button {
   align-items: center;
   justify-content: center;
   font-family: 'Kumbh Sans', sans-serif;
+
+}
+
+.submit {
+  display: flex;
+  position:absolute;
+  bottom:10px;
+  width:140px;
+  border-radius:26px;
+  height:53px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color:white;
+  weight:700;
+  background-color:var(--orange);
+  right:38%;
+  outline:none;
 }
