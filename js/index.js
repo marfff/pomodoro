@@ -30,7 +30,6 @@ class Timer {
       if (item.classList == "active") {
         let selectedwords = item.innerHTML;
         let settime;
-        console.log(this.timepom);
 
         switch (selectedwords) {
           case "pomodoro":
@@ -102,7 +101,6 @@ class Timer {
 
   overSettings() {
     // alert("TOGGLEhere");
-    console.log("TOGGLING");
     this.modal.classList.toggle("modal");
   }
 }
@@ -154,51 +152,79 @@ const mainSettings2 = document
     countdownTimer.overSettings();
   });
 //SETTINGS TIME SPINNER
-
 document.querySelectorAll(".uparrow, .downarrow").forEach((arrow) => {
   arrow.addEventListener("click", (ev) => ev.preventDefault());
   let timepom = minspom.value;
-  console.log(timepom);
 });
-// let inc = () => document.getElementById("minspom").stepUp(1);
+
 let inc = (input) => document.getElementById(input).stepUp(1);
 let dec = (input) => document.getElementById(input).stepDown(1);
 
-let input1 = document.getElementById("minspom");
-let input2 = document.getElementById("minsshort");
-let input3 = document.getElementById("minslong");
-
-console.log(minspom.value, minsshort.value, minslong.value);
-
 const submit = (event) => {
   event.preventDefault();
-
-  //   console.log(minspom.value, minsshort.value, minslong.value);
   this.timepom = minspom.value;
   this.timeshort = minsshort.value;
   this.timelong = minslong.value;
-
-  //   console.log(timepom);
 };
 form.addEventListener("submit", submit);
 
-// console.log(form);
+//COLOR SELECTOR
 
-// document.getElementById("minspom").stepUp(2);
-// const inc = (pomodoro) => {
-//   let inputValue1 = input1.value;
-//   console.log(inputValue1);
-//   console.log(pomodoro);
-//   input1.value++;
-// };
+document.getElementById("colblock1").addEventListener("click", (ev) => {
+  console.log("redclicked");
+  colblock1.innerHTML = "✓";
+  colblock2.innerHTML = "";
+  colblock3.innerHTML = "";
+  document.documentElement.style.setProperty("--dynamiccolor", "#F87070");
+});
 
-// const dec = () => {
-//   console.log(input1.value);
-//   input1.value--;
-// };
+document.getElementById("colblock2").addEventListener("click", (ev) => {
+  console.log("greenclicked");
+  colblock2.innerHTML = "✓";
+  colblock1.innerHTML = "";
+  colblock3.innerHTML = "";
+  document.documentElement.style.setProperty("--dynamiccolor", "#70F3F8");
+});
 
-// const inc = (input) => getElementById("minspom").stepUp(1);
+document.getElementById("colblock3").addEventListener("click", (ev) => {
+  console.log("purpleclicked");
+  colblock3.innerHTML = "✓";
+  colblock1.innerHTML = "";
+  colblock2.innerHTML = "";
+  document.documentElement.style.setProperty("--dynamiccolor", "#D881F8");
+});
 
-// const dec = (input) => getElementById(input).stepDown(1);
+//FONT SELECTOR
 
-// number selectors input
+document.getElementById("fontblock1").addEventListener("click", (ev) => {
+  console.log("font1clicked");
+  fontblock1.style.backgroundColor = "black";
+  fontblock2.style.backgroundColor = "white";
+  fontblock3.style.backgroundColor = "white";
+  fontblock1.style.color = "white";
+  fontblock2.style.color = "gray";
+  fontblock3.style.color = "gray";
+  document.documentElement.style.setProperty("--dynamicfont", "Kumbh Sans");
+});
+
+document.getElementById("fontblock2").addEventListener("click", (ev) => {
+  console.log("font2clicked");
+  fontblock2.style.backgroundColor = "black";
+  fontblock1.style.backgroundColor = "white";
+  fontblock3.style.backgroundColor = "white";
+  fontblock2.style.color = "white";
+  fontblock1.style.color = "gray";
+  fontblock3.style.color = "gray";
+  document.documentElement.style.setProperty("--dynamicfont", "Roboto");
+});
+
+document.getElementById("fontblock3").addEventListener("click", (ev) => {
+  console.log("font3clicked");
+  fontblock3.style.backgroundColor = "black";
+  fontblock1.style.backgroundColor = "white";
+  fontblock2.style.backgroundColor = "white";
+  fontblock3.style.color = "white";
+  fontblock1.style.color = "gray";
+  fontblock2.style.color = "gray";
+  document.documentElement.style.setProperty("--dynamicfont", "Space Mono");
+});

@@ -6,13 +6,18 @@
     --dark-blue: #1E213F;
     --darker-blue:#161932;
     --white: #FFFFFF;
-    --beige: #EFF1FA;   
+    --beige: #EFF1FA;
+    --dynamiccolor: #F87070;
+    --fontkumbh:'Kumbh Sans', sans-serif;
+    --fontroboto:'Roboto', sans-serif;
+    --fontspace:'Space Mono', monospace; 
+    --dynamicfont:'Kumbh Sans', sans-serif;
 }
 * {
   padding: 0;
   margin:0;
   box-sizing: border-box;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--fontdynamic);
 }
 #wrapper {
   display:flex;
@@ -64,7 +69,7 @@ background-color: var(--dark-blue)
   height: 14px;
   width:33%;
   color:var(--light-blue);
-  font-family: Kumbh Sans;
+  font-family: var(--dynamicfont);
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -84,14 +89,14 @@ background-color: var(--dark-blue)
   border-radius: 26.5px;
   width:120px;
   height:48px;
-  background: #F87070;
+  background:var(--dynamiccolor);
   transition:margin-left 500ms ease-out;
   opacity: 1;
   }
 
   .pointer {
-    user-select: none;
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
   }
   
 .title {
@@ -100,7 +105,7 @@ background-color: var(--dark-blue)
   left: 30.98%;
   right: 30.98%;
   top:48px;
-  font-family: Kumbh Sans;
+  font-family: var(--dynamicfont);
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -159,7 +164,7 @@ background-color: var(--dark-blue)
     }
 
 circle {
-  stroke:#F87070;
+  stroke:var(--dynamiccolor);
   stroke-width:10;
   r:163;
   cx:50%;
@@ -180,7 +185,7 @@ circle {
   width:233px;
   top: -230px;
   margin-left:77px;
-  font-family: Kumbh Sans;
+  font-family: var(--dynamicfont);
   font-style: normal;
   font-weight: bold;
   transition:margin-left 1500ms ease-out;
@@ -203,7 +208,7 @@ circle {
   margin:auto;
   left:8px;
   top: -180px;
-  font-family: Kumbh Sans;
+  font-family: var(--dynamicfont);
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -238,14 +243,14 @@ display: none;
 }
 
 .modalclosebar{
-  margin-left:98%;
-  cursor:pointer;
+margin-left:98%;
+cursor:pointer;
 }
 
 #closer {
-  position:fixed;
-  color:var(--dark-blue);
-  opacity:50%;
+position:fixed;
+color:var(--dark-blue);
+opacity:50%;
   
   
 }
@@ -281,16 +286,16 @@ hr {
   margin-top:25px;
   }
 
-  #modselectorwording{
-    display:flex;
-    justify-content: space-between;
-    height:12px;
-    width:462px;
-    margin-top:22px;
-    margin-bottom:4px;
-    font-size: 12px;
-    margin-left:0px;
-    color:var(--light-blue);
+#modselectorwording{
+  display:flex;
+  justify-content: space-between;
+  height:12px;
+  width:462px;
+  margin-top:22px;
+  margin-bottom:4px;
+  font-size: 12px;
+  margin-left:0px;
+  color:var(--light-blue);
  }
 
   #modpomwords {
@@ -439,7 +444,7 @@ button {
   display:flex;
   margin-right:15px;
   color:white;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--fontkumbh);
   align-items: center;
   justify-content: center;
   background-color:black;
@@ -453,7 +458,7 @@ button {
   font-weight:400;
   align-items: center;
   justify-content: center;
-  font-family: Roboto Slab;
+  font-family: var(--fontroboto);
   background-color:white;
 }
 
@@ -464,7 +469,7 @@ button {
   align-items: center;
   justify-content: center;
   background-color:white;
-  font-family: Space Mono;
+  font-family: var(--fontspace);
 }
 
 .circular {
@@ -478,7 +483,7 @@ button {
   margin-right:15px;
   background: var(--orange);
   border: 2px solid #161932;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--dynamicfont);
   align-items: center;
   justify-content: center;
   font-weight:700;
@@ -493,7 +498,7 @@ button {
   font-weight:400;
   align-items: center;
   justify-content: center;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--dynamicfont);
 }
 
 #colblock3 {
@@ -504,7 +509,7 @@ button {
   font-weight:700;
   align-items: center;
   justify-content: center;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--dynamicfont);
 
 }
 
@@ -524,3 +529,9 @@ button {
   right:38%;
   outline:none;
 }
+
+.submit:hover{
+  background-color:var(--orange);
+  opacity:0.8;
+}
+
