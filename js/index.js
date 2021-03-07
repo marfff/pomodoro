@@ -148,3 +148,34 @@ const mainSettings2 = document
   .addEventListener("click", (ev) => {
     countdownTimer.overSettings();
   });
+//SETTINGS TIME SPINNER
+
+// const input1 = document.getElementById("minspom");
+// const input2 = document.getElementById("minsshort");
+// const input3 = document.getElementById("minslong");
+
+document.querySelectorAll(".uparrow, .downarrow").forEach((arrow) => {
+  arrow.addEventListener("click", (ev) => ev.preventDefault());
+});
+// let inc = () => document.getElementById("minspom").stepUp(1);
+let inc = (input) => document.getElementById(input).stepUp(1);
+let dec = (input) => document.getElementById(input).stepDown(1);
+// document.getElementById("minspom").stepUp(2);
+
+// const inc = (pomodoro) => {
+//   let inputValue1 = input1.value;
+//   console.log(inputValue1);
+//   console.log(pomodoro);
+//   input1.value++;
+// };
+
+// const dec = () => {
+//   console.log(input1.value);
+//   input1.value--;
+// };
+
+// const inc = (input) => getElementById("minspom").stepUp(1);
+
+// const dec = (input) => getElementById(input).stepDown(1);
+
+// number selectors input

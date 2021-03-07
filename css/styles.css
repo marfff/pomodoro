@@ -12,7 +12,7 @@
   padding: 0;
   margin:0;
   box-sizing: border-box;
-  font-family: font-family: 'Kumbh Sans', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 #wrapper {
   display:flex;
@@ -316,6 +316,7 @@ hr {
     justify-content: space-between;
     margin-top:8px;
     margin-bottom:24px;
+    
   }
 
 input::-webkit-outer-spin-button,
@@ -331,6 +332,7 @@ input[type=number] {
   color: var(--dark-blue);
   width: 140px;
   height:48px;
+  padding-left:18px;
   border-radius:10px;
   background:var(--beige);
   left:10px;
@@ -340,6 +342,7 @@ input[type=number] {
   color: var(--dark-blue);
   width: 140px;
   height:48px;
+  padding-left:18px;
   border-radius:10px;
   background:var(--beige);
   left:10px;
@@ -349,18 +352,21 @@ input[type=number] {
   color: var(--dark-blue);
   width: 140px;
   height:48px;
+  padding-left:15px;
   border-radius:10px;
   background:var(--beige);
   left:10px;
 }
 
+button {
+  border-radius: 15px;;
+}
 
-.updown {
+.inputbuttons {
   flex-direction:column;
+  border-radius:25px;
   display:flex;
-  width:30px;
-  padding-right:16px;
-  padding-left:2px;
+  width:50px;
   justify-content: center;
   fill:white;
 }
@@ -382,7 +388,7 @@ input[type=number] {
   flex-direction: row;
   width: 118px;
   height:48px;
-  background:green;
+  background:var(--orange);
   border-radius:10px;
   border:none;
   outline:none;
@@ -393,7 +399,7 @@ input[type=number] {
   flex-direction: row;
   width: 118px;
   height:48px;
-  background:red;
+  background:var(--green);
   border-radius:10px;
   border:none;
   outline:none;
@@ -404,7 +410,7 @@ input[type=number] {
   flex-direction: row;
   width: 118px;
   height:48px;
-  background:blue;
+  background:var(--purple);
   border-radius:10px;
   border:none;
   outline:none;

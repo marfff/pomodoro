@@ -63,36 +63,57 @@
         <div id="modshortwords">short break</div>
         <div id="modlongwords">long break</div>
       </div>
-
-
       <form class="form" id=#form>
         <div id="modselectors" class="modselectors">
 
+
           <span id="modselectorpom" class="modselectorpom">
             <input type="number" class="minspom" id="minspom" name="minspom" min="1" max="120" value="25" color="blue">
-            <span class="updown">
-              <img src="./assets/icon-arrow-up.svg" id="minspomup" class="arrows" />
-              <img src="./assets/icon-arrow-down.svg" id="minspomdown" class="arrows" />
-            </span>
+            <div class=inputbuttons>
+
+              <button name="pomodoro" class="uparrow" onclick="inc('minspom')">
+                <img src="./assets/icon-arrow-up.svg" name="pomodoro" id="minspomup" class="arrows" />
+              </button>
+
+              <button class=" downarrow" onclick="dec('minspom')">
+                <img src="./assets/icon-arrow-down.svg" name="pomodoro" id="minspomdown" class="arrows" />
+              </button>
+            </div>
           </span>
 
           <span id="modselectorshort" class="modselectorshort">
-            <input type="number" class="minsshort" id="minsshort" name="minsshort" min="1" max="120" value="5"
+            <input type="number" class="minspom" id="minsshort" name="minsshort" min="1" max="25" value="5"
               color="blue">
-            <span class="updown">
-              <img src="./assets/icon-arrow-up.svg" id="minsshortup" class="arrows" />
-              <img src="./assets/icon-arrow-down.svg" id="minsshortdown" class="arrows" />
-            </span>
+            <div class=inputbuttons>
+
+              <button name="shortbreak" class="uparrow" onclick="inc('minsshort')">
+                <img src="./assets/icon-arrow-up.svg" name="shortbreak" id="minspomup" class="arrows" />
+              </button>
+
+              <button class=" downarrow" onclick="dec('minsshort')">
+                <img src="./assets/icon-arrow-down.svg" name="shortbreak" id="minspomdown" class="arrows" />
+              </button>
+            </div>
           </span>
 
           <span id="modselectorlong" class="modselectorlong">
-            <input type="number" class="minslong" id="minslong" name="minslong" min="1" max="120" value="10"
+            <input type="number" class="minspom" id="minslong" name="minslong" min="1" max="625" value="10"
               color="blue">
-            <span class="updown">
-              <img src="./assets/icon-arrow-up.svg" id="minslongup" class="arrows" />
-              <img src="./assets/icon-arrow-down.svg" id="minslongdown" class="arrows" />
-            </span>
+            <div class=inputbuttons>
+
+              <button name="longbreak" class="uparrow" onclick="inc('minslong')">
+                <img src="./assets/icon-arrow-up.svg" name="longbreak" id="minspomup" class="arrows" />
+              </button>
+
+              <button class=" downarrow" onclick="dec('minslong')">
+                <img src="./assets/icon-arrow-down.svg" name="longbreak" id="minspomdown" class="arrows" />
+              </button>
+            </div>
           </span>
+
+
+
+
         </div>
         <hr>
         </hr>
@@ -105,6 +126,8 @@
             <div id="fontblock3" class="circular">Aa</div>
           </div>
         </div>
+        <hr>
+        </hr>
 
         <div class="modfontline">
           <div id="modfontwords">COLOR</div>
@@ -115,21 +138,8 @@
             <div id="colblock3" class="circular"></div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
+      </form>
     </div>
-  </div>
-  <hr>
-  </hr>
-  </form>
-  </div>
   </div>
 
 
@@ -137,3 +147,25 @@
 </body>
 
 </html>
+
+
+
+<!-- <span id="modselectorlong" class="modselectorlong">
+            <input type="number" class="minslong" id="minslong" name="minslong" min="1" max="400" value="10"
+              color="blue">
+
+            <span class="updown">
+              <img src="./assets/icon-arrow-up.svg" id="minslongup" name="longbreak" class="arrows" />
+              <img src="./assets/icon-arrow-down.svg" name="longbreak" id="minslongdown" class="arrows" />
+            </span>
+          </span> -->
+
+<!-- <span id="modselectorshort" class="modselectorshort">
+            <input type="number" class="minsshort" id="minsshort" name="minsshort" min="1" max="120" value="5"
+              color="blue">
+
+            <span class="updown">
+              <img src="./assets/icon-arrow-up.svg" id="minsshortup" name="shortbreak" class="arrows" />
+              <img src="./assets/icon-arrow-down.svg" id="minsshortdown" name="shortbreak" class="arrows" />
+            </span>
+          </span>
