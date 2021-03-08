@@ -4,26 +4,19 @@ class Timer {
     this.clock = document.getElementById("time");
     this.time = document.getElementById("time");
     this.time.innerHTML = this.timeLeft + ":00";
-    this.timepom = 25;
-    this.timeshort = 5;
-    this.timelong = 10;
-
     this.selectors = document.querySelectorAll("li");
     this.action = document.getElementById("action");
     this.circle1 = document.getElementById("circle");
-    this.buttonshort = document.getElementById("buttonshort");
-    this.buttonlong = document.getElementById("buttonlong");
-    this.buttonpomo = document.getElementById("buttonpomo");
-
     this.paused = false;
     this.audio1 = document.getElementById("sound1");
     this.modal = document.querySelector(".modal");
   }
 
-  //MAIN TIMER / start() method
-  //main timer countdown receving timeLeft/passed in timer setting.
+  //START() METHOD
+  //main timer countdown receiving timeLeft
   //clears the interval
   //manipulates the leading zeros if minutes or seconds are less then 10 working in milliseconds.
+  //changes 'this.action' label to 'pause'
   //setInterval set to 1000 milliseconds
 
   start(timeLeft) {
@@ -33,6 +26,7 @@ class Timer {
     this.startingtime = this.timeLeft;
 
     //had issues with scope/undefined varaibles - so made a variable called scope.
+    //adjusted for numbers below 10 to add a 0
     let scope = this;
     this.myInterval = setInterval(function () {
       let seconds = Math.floor(scope.timeLeft % 60);
@@ -52,23 +46,23 @@ class Timer {
         return;
       }
 
-      //continues if not paused
-      //evaluates coloured ring to show correctly for starting 'settime''=100%, using //timeLeft and startingtime variable.
+      //runs if not paused
+      //displays time digits (best if monospace font) and svg coloured ring mimics time using style.strokeDashoffset
       //strokeDashoffset on the svg as a proportion of 1024 'displays' the ring of time left'
       if (!scope.paused) {
         scope.clock.innerText = `${minutes}:${seconds}`;
         scope.circle1.style.strokeDashoffset =
           scope.timeLeft / (scope.startingtime / 1024);
-        clearInterval(this.myInterval);
+        // clearInterval(this.myInterval);
       }
 
-      //if paused changes action indicator to read 'resume' and stops timer further running with clearInterval() and 'displays' the held time with strokeDashoffset on the svg.
+      //if paused - changes action indicator to read 'resume' and stops timer further running with clearInterval() and 'displays' the held time with strokeDashoffset on the svg.
+      //changes this.action label to 'resume'
       while (scope.paused) {
         scope.clock.innerText = `${minutes}:${seconds}`;
         scope.circle1.style.strokeDashoffset =
           scope.timeLeft / (scope.startingtime / 1024);
         scope.action.innerHTML = "RESUME";
-
         clearInterval(scope.myInterval);
         return;
       }
@@ -88,15 +82,16 @@ class Timer {
     this.start(this.timeLeft / 60);
   }
 
+  //display/hide MAIN SETTING page
   overSettings() {
     // alert("TOGGLEhere");
-    this.modal.classList.toggle("modal");
+    this.modal.classList.toggle("modal--hidden");
   }
 
-  //*see below for NAV LINKS  function passing to this 'settings' method.
-  //switch statement - slide selector clears active class and reassigns it to pressed main time selected as 'settime' -pomodoro, short or long.//'passing in' inner html word of button.
-
-  //if class is 'active ie color overlayed finds the relevant text of the li
+  //2. NAV LINKS START METHOD -// -trigger is- 'active' class runs start(settime) {}
+  //*see below for NAV LINKS.
+  //determines if any li is active with  this.selectors = document.querySelectorAll("li");
+  //assigns innerHTML 'word' of 'active' li to 'settime'
 
   settings() {
     this.selectors.forEach((item) => {
@@ -116,16 +111,20 @@ class Timer {
             break;
         }
 
-        //runs start() passing in 'settime'.
+        //runs start(settime) passing in 'settime'.
         countdownTimer.start(settime);
       }
     });
   }
 }
+
 //Instantiation of 'the main timer 'function' class.
 const countdownTimer = new Timer();
 
-//switch case decision using string of passed in 'action' to determin relevant method call.//default 25 minutes for pomodor and methods on countdownTimer.
+//ACTION run method
+//switch case decision using string of passed in 'action' to determin relevant method call countdownTimer().
+//eg pause or resume or start//
+// default 25 minutes for pomodor and methods on countdownTimer.
 function action(str) {
   switch (str.toLowerCase()) {
     case "start":
@@ -137,21 +136,15 @@ function action(str) {
     case "resume":
       countdownTimer.resume();
       break;
-    default:
-      countdownTimer.stop();
-      break;
+    // default:
+    //   countdownTimer.stop();
+    //   break;
   }
 }
 
-//NAV LINKS//
-//*see above for 'settings' method
-//intially making navbuttons obtain the li elements as in the slide sector main group times.
-//navBg is  which  color/switch is active.
-//adds an event listener to each li using its index
-//moves the color overlay dependant on maths and index to cover the relevant needed button///changes property - style.marginLeft to correct position to place overlay.
-//for Each li removes 'any' highlighted and adds an activetag to the 'clicked' button.
-//runs method settings.
-
+//1. NAV LINKS START METHOD//
+//document.querySelectorAll("li") (outside class);
+//coloured indicator remove and reposition and add class 'active' depending on what time selection is made.Runs method (settings)
 const navbuttons = document.querySelectorAll("li");
 let navBg = document.getElementById("bgindicator");
 navbuttons.forEach((item, index) => {
@@ -165,7 +158,7 @@ navbuttons.forEach((item, index) => {
 });
 
 //MAIN SETTINGS//
-
+//toggles page display - overSettings()
 //adding event listener to main 'settings / modal page'
 const mainSettings = document
   .getElementById("settings1")
@@ -193,11 +186,14 @@ let inc = (input) => document.getElementById(input).stepUp(1);
 let dec = (input) => document.getElementById(input).stepDown(1);
 
 //form submission and 'sending' back to settings switch statement set values and runs (start) method.
+timepom = 25;
+timeshort = 5;
+timelong = 10;
 const submit = (event) => {
   event.preventDefault();
-  this.timepom = minspom.value;
-  this.timeshort = minsshort.value;
-  this.timelong = minslong.value;
+  timepom = minspom.value;
+  timeshort = minsshort.value;
+  timelong = minslong.value;
 };
 form.addEventListener("submit", submit);
 
@@ -233,7 +229,6 @@ document.getElementById("colblock3").addEventListener("click", (ev) => {
 });
 
 //FONT SELECTOR
-
 //onclick changes adds backround to black / font to white to relevant event listened font change 'element selector'.
 //sends back using style.setPropery to dynamiccolor variable for use in 'setting' color theme of main page using css
 
@@ -278,3 +273,9 @@ document.getElementById("fontblock3").addEventListener("click", (ev) => {
 // this.timetoContinue = 19;
 // this.timesetter = 25;
 // this.myInterval = null;
+// this.buttonshort = document.getElementById("buttonshort");
+// this.buttonlong = document.getElementById("buttonlong");
+// this.buttonpomo = document.getElementById("buttonpomo");
+// this.timepom = 25;
+// this.timeshort = 5;
+// this.timelong = 10;

@@ -8,18 +8,19 @@
     --white: #FFFFFF;
     --beige: #EFF1FA;
     --dynamiccolor: #F87070;
-    /* --fontkumbh:'Kumbh Sans', sans-serif; */
     --fontroboto:'Roboto', sans-serif;
     --fontspace:'Space Mono', monospace; 
-    --dynamicfont:'Inconsolata', monospace;
-    --fontkumbh:'Inconsolata', monospace;
+    --dynamicfont:'Kumbh Sans', sans-serif;
+    --fontkumbh:'Kumbh Sans', sans-serif;
 }
+
 * {
   padding: 0;
   margin:0;
   box-sizing: border-box;
   font-family: var(--fontdynamic);
 }
+
 #wrapper {
   display:flex;
   flex-direction:column;
@@ -76,7 +77,6 @@ background-color: var(--dark-blue)
   font-size: 14px;
   line-height: 14px;
   opacity:0.6;
-  /* identical to box height */
   }
 
   .active{
@@ -220,6 +220,10 @@ circle {
   color:var(--dynamiccolor);
 }
 
+#action:hover {
+  transform: scale(1.1)
+}
+
 #settingicon {
 margin:auto;
 position: absolute;
@@ -232,6 +236,7 @@ height:28px;
 width:27px;
 fill:var(--light-blue);
 }
+
 .modal {
 position: absolute;
 top:123px;
@@ -239,10 +244,6 @@ width: 540px;
 cursor:pointer;
 height:464px;
 margin:auto;
-/* (&--hidden { 
-display: none;
-}) */
-display:hidden;
 }
 
 .modalclosebar{
@@ -254,8 +255,10 @@ cursor:pointer;
 position:fixed;
 color:var(--dark-blue);
 opacity:50%;
-  
-  
+}
+
+.modal--hidden{
+display:none;
 }
 
 .modalcontent{
@@ -303,7 +306,6 @@ hr {
 
   #modpomwords {
     display:flex;
-    
     width:39%;
     }
 
@@ -385,8 +387,8 @@ button {
 }
 
 .arrows:hover {
-  /* stroke:black;
-  fill:white; */
+  stroke:black;
+  fill:white;
   opacity:.6;
 }
 
@@ -533,7 +535,7 @@ button {
   align-items: center;
   font-size: 16px;
   color:white;
-  weight:700;
+  font-weight:700;
   background-color:var(--orange);
   right:38%;
   outline:none;
