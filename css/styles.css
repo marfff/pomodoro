@@ -8,10 +8,11 @@
     --white: #FFFFFF;
     --beige: #EFF1FA;
     --dynamiccolor: #F87070;
-    --fontkumbh:'Kumbh Sans', sans-serif;
+    /* --fontkumbh:'Kumbh Sans', sans-serif; */
     --fontroboto:'Roboto', sans-serif;
     --fontspace:'Space Mono', monospace; 
-    --dynamicfont:'Kumbh Sans', sans-serif;
+    --dynamicfont:'Inconsolata', monospace;
+    --fontkumbh:'Inconsolata', monospace;
 }
 * {
   padding: 0;
@@ -113,9 +114,7 @@ background-color: var(--dark-blue)
   text-align: center;
   color: #D7E0FF;
 }
-/* .center {
-    margin: 0 auto;
-} */
+
 #timer {
   display:flex;
   flex-direction: column;
@@ -179,13 +178,16 @@ circle {
 }
 
 #time {
-  margin:auto;
+  display:flex;
+  justify-content:center;
+  left:0px;
   position: relative;
+  margin-top:-0px;
+  font-variant-numeric: tabular-nums;
   height: 101px;
-  width:233px;
-  top: -230px;
-  margin-left:77px;
+  top: -227px;
   font-family: var(--dynamicfont);
+  font-variant-numeric: tabular-nums;
   font-style: normal;
   font-weight: bold;
   transition:margin-left 1500ms ease-out;
@@ -207,7 +209,7 @@ circle {
   outline:none;
   margin:auto;
   left:8px;
-  top: -180px;
+  top: -200px;
   font-family: var(--dynamicfont);
   font-style: normal;
   font-weight: bold;
@@ -215,7 +217,7 @@ circle {
   line-height: 16px;
   letter-spacing: 15px;
   background-color:#111112;
-  color: #F87070;
+  color:var(--dynamiccolor);
 }
 
 #settingicon {
@@ -237,9 +239,10 @@ width: 540px;
 cursor:pointer;
 height:464px;
 margin:auto;
-(&--hidden { 
+/* (&--hidden { 
 display: none;
-})
+}) */
+display:hidden;
 }
 
 .modalclosebar{
@@ -477,6 +480,9 @@ button {
   width:40px;
   border-radius:50%
 }
+#colblock {
+  font-size: 24px;
+}
 
 #colblock1 {
   display:flex;
@@ -486,6 +492,7 @@ button {
   font-family: var(--dynamicfont);
   align-items: center;
   justify-content: center;
+  font-size: 28px;
   font-weight:700;
 }
 
@@ -493,6 +500,7 @@ button {
   display:flex;
   margin-right:15px;
   background: var(--green);
+  font-size: 28px;
   border: 2px solid #161932;
   color:grey;
   font-weight:400;
@@ -505,6 +513,7 @@ button {
   display:flex;
   color:black;
   background: var(--purple);
+  font-size: 28px;
   border: 2px solid #161932;
   font-weight:700;
   align-items: center;
